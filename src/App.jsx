@@ -1,10 +1,11 @@
 import Layout from "./components/Layout";
+import MainContactApp from "./components/MainContactApp/MainContactApp";
 
 function App() {
     return (
         <div>
             <Layout>
-                <h1>Home</h1>
+                <MainContactApp />
             </Layout>
         </div>
     );
