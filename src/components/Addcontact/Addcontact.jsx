@@ -23,6 +23,7 @@ const Addcontact = ({ addContactHandler }) => {
                     className="border-2 border-gray-300 rounded-lg p-1 focus:outline-none focus:ring-2 focus:ring-blue-600"
                     type="text"
                     name="name"
+                    required
                     value={contact.name}
                     onChange={changeInputHandler}
                 />
@@ -33,6 +34,7 @@ const Addcontact = ({ addContactHandler }) => {
                     className="border-2 border-gray-300 rounded-lg p-1 focus:outline-none focus:ring-2 focus:ring-blue-600"
                     type="text"
                     name="email"
+                    required
                     value={contact.email}
                     onChange={changeInputHandler}
                 />
@@ -43,6 +45,7 @@ const Addcontact = ({ addContactHandler }) => {
                     className="border-2 border-gray-300 rounded-lg p-1 focus:outline-none focus:ring-2 focus:ring-blue-600"
                     type="text"
                     name="phone"
+                    required
                     value={contact.phone}
                     onChange={changeInputHandler}
                 />
