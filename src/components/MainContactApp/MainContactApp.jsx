@@ -3,6 +3,7 @@ import Addcontact from "../Addcontact/Addcontact";
 import ContactList from "../ContactList/ContactList";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import ContactSingle from "../ContactSingle/ContactSingle";
+import axios from "axios";
 const MainContactApp = () => {
     const [contacts, setContacts] = useState([]);
     const navigate = useNavigate();
@@ -20,15 +21,16 @@ const MainContactApp = () => {
     };
 
     useEffect(() => {
-        const saveContact = localStorage.getItem("contacts");
-        if (saveContact) {
-            setContacts(JSON.parse(saveContact));
-        }
+        const getContactData = async () => {
+            const { data } = await axios.get("http://localhost:3001/contacts");
+            setContacts(data);
+        };
+        getContactData();
     }, []);
 
-    useEffect(() => {
-        localStorage.setItem("contacts", JSON.stringify(contacts));
-    }, [contacts]);
+    // useEffect(() => {
+    //     localStorage.setItem("contacts", JSON.stringify(contacts));
+    // }, [contacts]);
 
     return (
         <div>
