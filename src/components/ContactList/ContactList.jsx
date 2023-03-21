@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ContactCard from "../ContactCard/ContactCard";
 
-const ContactList = ({ contacts, onDelete }) => {
+const ContactList = ({ contacts, onDelete, onEdit }) => {
     return (
         <div className="flex flex-col items-center">
             <div>
@@ -19,6 +19,7 @@ const ContactList = ({ contacts, onDelete }) => {
                         <ContactCard
                             key={item.id}
                             onDelete={() => onDelete(item.id)}
+                            onEdit={() => onEdit(item.id)}
                             {...item}
                         />
                     );
