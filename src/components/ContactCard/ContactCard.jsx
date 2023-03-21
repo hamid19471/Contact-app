@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ContactCard = ({ name, email, phone, id, onDelete }) => {
+const ContactCard = ({ name, email, phone, id, onDelete, onEdit }) => {
     return (
         <div className="flex flex-col max-w-[350px] items-center justify-center gap-5 bg-violet-500 py-8 text-white m-3 rounded-lg shadow-lg text-center">
             <div>
@@ -31,9 +31,14 @@ const ContactCard = ({ name, email, phone, id, onDelete }) => {
                 >
                     Deleter
                 </button>
-                <button className="py-1 px-5 bg-amber-400 font-bold mx-2 text-sm rounded-lg">
-                    Edit
-                </button>
+                <Link to={`/edit/${id}`}>
+                    <button
+                        className="py-1 px-5 bg-amber-400 font-bold mx-2 text-sm rounded-lg"
+                        onClick={onEdit}
+                    >
+                        Edit
+                    </button>
+                </Link>
             </div>
         </div>
     );
