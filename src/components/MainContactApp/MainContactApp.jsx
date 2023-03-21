@@ -6,6 +6,8 @@ import ContactSingle from "../ContactSingle/ContactSingle";
 import getContacts from "../../httpRequests/getContacts";
 import removeContact from "../../httpRequests/removeContact";
 import addContact from "../../httpRequests/addContact";
+import EditContact from "../EditContact/EditContact";
+import updateOneContact from "../../httpRequests/updateOneContact";
 
 const MainContactApp = () => {
     const [contacts, setContacts] = useState([]);
@@ -26,6 +28,13 @@ const MainContactApp = () => {
         } catch (error) {}
     };
 
+    const editContactHandler = async (contacts, id) => {
+        await updateOneContact(contacts, id);
+        const { data } = await getContacts();
+        setContacts(data);
+        console.log(data);
+    };
+
     useEffect(() => {
         const getContactData = async () => {
             try {
@@ -44,11 +53,21 @@ const MainContactApp = () => {
                     element={<ContactSingle contacts={contacts} />}
                 />
                 <Route
+                    path="/edit/:id"
+                    element={
+                        <EditContact
+                            contacts={contacts}
+                            editContactHandler={editContactHandler}
+                        />
+                    }
+                />
+                <Route
                     path="/"
                     element={
                         <ContactList
                             contacts={contacts}
                             onDelete={deleteContactHandler}
+                            onEdit={editContactHandler}
                         />
                     }
                 />
