@@ -32,7 +32,6 @@ const MainContactApp = () => {
         await updateOneContact(contacts, id);
         const { data } = await getContacts();
         setContacts(data);
-        console.log(data);
     };
 
     useEffect(() => {

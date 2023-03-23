@@ -26,6 +26,7 @@ const EditContact = ({ editContactHandler }) => {
                     email: data.email,
                     phone: data.phone,
                 });
+                console.log(data);
             } catch (error) {}
         };
         getOne();
